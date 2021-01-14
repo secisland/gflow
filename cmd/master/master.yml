@@ -1,0 +1,6 @@
+master:
+  tcp_addr: "192.168.56.101:5000"
+  grpc_addr: "192.168.56.101:5001"
+worker:
+  hearbeat_interval_sec: 5
+  hearbeat_timeout_sec: 1

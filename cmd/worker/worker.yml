@@ -1,0 +1,20 @@
+
+worker:
+  grpc_addr: "192.168.56.101:5002"
+  cpu_quota_ms: 300000
+  mem_limit_byte: 2147483648
+  data_path: "/tmp"
+
+master:
+  tcp_addr: "192.168.56.101:5000"
+  grpc_addr: "192.168.56.101:5001"
+  hearbeat_retry_timeout_sec: 1     #0表示连接失败不断重试
+
+#任务
+task:
+  log_level: "info"
+  log_dir: "/tmp/"
+  log_max_age_hours: 72
+  log_rotate_hours: 24
+
+

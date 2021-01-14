@@ -1,0 +1,65 @@
+
+syntax = "proto3";
+
+
+option go_package = ".;cdb";
+option java_multiple_files = true;
+option java_package = "com.secyu.gflow.cdb";
+option java_outer_classname = "CDBProto";
+
+package cdb;
+
+service CDB {
+  rpc Get (GetRequest) returns (stream GetReply) {}
+  rpc GetByKey (GetByKeyRequest) returns (stream GetReply) {}
+  rpc Add (AddRequest) returns (AddReply) {}
+  rpc Set (SetRequest) returns (SetReply) {}
+  rpc Delete (DeleteRequest) returns (DeleteReply) {}
+  rpc DeleteByKey (DeleteByKeyRequest) returns (DeleteReply) {}
+}
+
+message GetRequest {
+  string topname = 1;
+  string version = 2;
+}
+
+message GetByKeyRequest {
+  string topname = 1;
+  string keyname = 2;
+}
+
+message GetReply {
+  bytes data = 1;
+}
+
+message SetRequest {
+  bytes data = 1;
+}
+
+message SetReply {
+  bool success = 1;
+}
+
+
+message AddRequest {
+  bytes data = 1;
+}
+
+message AddReply {
+  bool success = 1;
+}
+
+message DeleteRequest {
+  string topname = 1;
+  string version = 2;
+}
+
+message DeleteByKeyRequest {
+  string topname = 1;
+  string version = 2;
+  string keyname = 3;
+}
+
+message DeleteReply {
+  bool success = 1;
+}
