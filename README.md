@@ -27,7 +27,8 @@ cd services/protobuf/cdb
 protoc -I ./ cdb.proto --go_out=plugins=grpc:.
 ```
 
-## 2、支持分布式流式计算任务mapreduce（集成go-streams），并将计算中间结果保存到本地缓存中，通过master分式式任务状态协调机制和reduce归并调度实现。（gflow/api/client/cdb.go cdb 文件中的grpc客户端代码，可以连同gflow/services/profobuf/cdb/cdb.proto.go文件一起拷贝到 go-stream，实现外部任务进程可以grpc访问cdb数据库；）
+## 2、流式计算
+支持分布式流式计算任务mapreduce（集成go-streams），并将计算中间结果保存到本地缓存中，通过master分式式任务状态协调机制和reduce归并调度实现。（gflow/api/client/cdb.go cdb 文件中的grpc客户端代码，可以连同gflow/services/profobuf/cdb/cdb.proto.go文件一起拷贝到 go-stream，实现外部任务进程可以grpc访问cdb数据库；）
 
 ## 3、master http rest API示例：
 ```
